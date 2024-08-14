@@ -1,0 +1,134 @@
+<ion-header mode="md" class="page-header">
+  <ion-toolbar>
+    <div class="flex items-center justify-between ion-padding py-0">
+      <div class="flex-1">
+        <h2 class="text-lg font-bold">
+          {{ 'transactions' | translate |titlecase }}
+        </h2>
+      </div>
+      <div class="flex items-center">
+        <div
+          class="flex items-center rounded-[50rem] border border-surface-150 dark:bg-surface-900 dark:border-surface-850 bg-surface-50 px-3 py-1 pl-1 ion-activatable relative overflow-hidden gap-2"
+        >
+          <div
+            class="size-6 bg-secondary-500 rounded-full aspect-square grid place-items-center text-white"
+          >
+            <ng-icon name="hugeStoreLocation02" size="0.9rem"></ng-icon>
+          </div>
+          <div class="w-14 max-w-16">
+            <p
+              class="text-sm font-semibold line-clamp-1 text-surface-800 dark:text-surface-200"
+            >
+              Outlet 1
+            </p>
+          </div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="false"
+  [fixedSlotPlacement]="true"
+  [scrollY]="false"
+  class="page-content"
+>
+  <div class="min-h-screen flex flex-col relative">
+    <div
+      class="sticky top-0 inset-x-0 bg-surface-light dark:bg-surface-950 z-10 border-b border-surface-100 dark:border-surface-900"
+    >
+      <ion-segment
+        mode="md"
+        [(ngModel)]="activeTabIndex"
+        [scrollable]="true"
+        [selectOnFocus]="true"
+        [swipeGesture]="true"
+        (ngModelChange)="onSegmentTabChange($event)"
+      >
+        <ion-segment-button [value]="0">
+          <ion-label>In Queue</ion-label>
+        </ion-segment-button>
+        <ion-segment-button [value]="1">
+          <ion-label>In Progress</ion-label>
+        </ion-segment-button>
+        <ion-segment-button [value]="2">
+          <ion-label>Ready To Take</ion-label>
+        </ion-segment-button>
+        <ion-segment-button [value]="3">
+          <ion-label>Ready to deliver</ion-label>
+        </ion-segment-button>
+        <ion-segment-button [value]="4">
+          <ion-label>Completed</ion-label>
+        </ion-segment-button>
+        <ion-segment-button [value]="5">
+          <ion-label>Canceled</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div class="flex-1">
+      <swiper-container
+        #tabSwiper
+        appSwiper
+        [modules]="swiperModules"
+        (swiperslidechange)="onSlideChange($event)"
+      >
+        <swiper-slide>
+          <ion-content [fullscreen]="true" class="min-h-screen page-content">
+            <!-- Refresher -->
+            <ion-refresher slot="fixed" class="z-[2]">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <!-- ! Refresher -->
+          </ion-content>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-content [fullscreen]="true" class="min-h-screen page-content">
+            <!-- Refresher -->
+            <ion-refresher slot="fixed" class="z-[2]">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <!-- ! Refresher -->
+          </ion-content>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-content [fullscreen]="true" class="min-h-screen page-content">
+            <!-- Refresher -->
+            <ion-refresher slot="fixed" class="z-[2]">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <!-- ! Refresher -->
+          </ion-content>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-content [fullscreen]="true" class="min-h-screen page-content">
+            <!-- Refresher -->
+            <ion-refresher slot="fixed" class="z-[2]">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <!-- ! Refresher -->
+          </ion-content>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-content [fullscreen]="true" class="min-h-screen page-content">
+            <!-- Refresher -->
+            <ion-refresher slot="fixed" class="z-[2]">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <!-- ! Refresher -->
+          </ion-content>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-content [fullscreen]="true" class="min-h-screen page-content">
+            <!-- Refresher -->
+            <ion-refresher slot="fixed" class="z-[2]">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <!-- ! Refresher -->
+          </ion-content>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+</ion-content>
