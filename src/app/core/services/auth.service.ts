@@ -55,16 +55,13 @@ export class AuthService {
    * Verify the user phone number and send OTP code.
    *
    * @param {Object} credentials
-   * @param {string} credentials.phone_number
-   * @param {string} credentials.dial_code
+   * @param {string} credentials.email
+   * @param {string} credentials.password
    * @returns Observable<any>
    */
-  login(credentials: {
-    username_or_email: string;
-    password: string;
-  }): Observable<any> {
+  login(credentials: { email: string; password: string }): Observable<any> {
     return this._http
-      .post(`${environment.api_url}/web/auth/login`, credentials)
+      .post(`${environment.api_url}/mobile/auth/login`, credentials)
       .pipe(
         switchMap((res: any) => {
           this.setApiToken(res.data.token);

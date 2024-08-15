@@ -29,6 +29,11 @@ const routes: Routes = [
         (m) => m.ReportIndexPageModule
       ),
   },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({

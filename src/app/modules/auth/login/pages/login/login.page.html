@@ -21,68 +21,92 @@
               Please login to continue.
             </p>
           </div>
-          <div class="flex flex-col gap-4">
-            <div class="w-full">
-              <label
-                for="email"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Email
-              </label>
-              <div class="relative">
-                <div
-                  class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="flex flex-col gap-4">
+              <div class="w-full">
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  <ng-icon
-                    name="lucideMail"
-                    size="1rem"
-                    class="text-gray-600 dark:text-gray-500"
-                  ></ng-icon>
+                  Email
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                  >
+                    <ng-icon
+                      name="lucideMail"
+                      size="1rem"
+                      class="text-gray-600 dark:text-gray-500"
+                      [ngClass]="{'!text-red-500': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}"
+                    ></ng-icon>
+                  </div>
+                  <input
+                    type="text"
+                    id="email"
+                    class="form-input form-control w-full pl-10"
+                    placeholder="Enter your email"
+                    formControlName="email"
+                    [ngClass]="{'form-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}"
+                  />
                 </div>
-                <input
-                  type="text"
-                  id="email"
-                  class="form-input form-control w-full pl-10"
-                  placeholder="Enter your email"
-                />
+                @if (loginForm.get('email')?.hasError('required') &&
+                loginForm.get('email')?.touched) {
+                <p class="text-sm text-red-500 mt-1">
+                  {{ 'field-is-required' | translate: { field: 'Email' } }}
+                </p>
+                }
+              </div>
+              <div class="w-full">
+                <label
+                  for="password"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Password
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                  >
+                    <ng-icon
+                      name="lucideLock"
+                      size="1rem"
+                      class="text-gray-600 dark:text-gray-500"
+                      [ngClass]="{'!text-red-500': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}"
+                    ></ng-icon>
+                  </div>
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-input form-control w-full pl-10"
+                    placeholder="Enter your password"
+                    formControlName="password"
+                    [ngClass]="{'form-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}"
+                  />
+                </div>
+                @if (loginForm.get('password')?.hasError('required') &&
+                loginForm.get('password')?.touched) {
+                <p class="text-sm text-red-500 mt-1">
+                  {{ 'field-is-required' | translate: { field: 'Password' } }}
+                </p>
+                }
+              </div>
+              <div class="w-full mt-2">
+                <button
+                  type="submit"
+                  class="text-white bg-primary-500 disabled:bg-primary-400 rounded-lg text-sm px-5 h-10 grid place-items-center focus:outline-none font-bold w-full ion-activatable relative overflow-hidden"
+                  [disabled]="isLoggingIn"
+                >
+                  @if (isLoggingIn) {
+                  <ion-spinner class="size-4" color="light"></ion-spinner>
+                  } @else {
+                  <span>{{ 'login' | translate |titlecase }}</span>
+                  }
+                  <ion-ripple-effect></ion-ripple-effect>
+                </button>
               </div>
             </div>
-            <div class="w-full">
-              <label
-                for="password"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Password
-              </label>
-              <div class="relative">
-                <div
-                  class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
-                >
-                  <ng-icon
-                    name="lucideLock"
-                    size="1rem"
-                    class="text-gray-600 dark:text-gray-500"
-                  ></ng-icon>
-                </div>
-                <input
-                  type="password"
-                  id="password"
-                  class="form-input form-control w-full pl-10"
-                  placeholder="Enter your password"
-                />
-              </div>
-            </div>
-            <div class="w-full mt-2">
-              <button
-                type="button"
-                class="text-white bg-primary-500 rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none font-bold w-full ion-activatable relative overflow-hidden"
-                routerLink="/"
-              >
-                <span>Login</span>
-                <ion-ripple-effect></ion-ripple-effect>
-              </button>
-            </div>
-          </div>
+          </form>
           <div class="flex items-center gap-3 pt-4 pb-6">
             <hr
               class="flex-1 border border-0.5 border-surface-100 dark:border-surface-900"
