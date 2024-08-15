@@ -1,6 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, from, of, switchMap, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  from,
+  of,
+  switchMap,
+  throwError,
+} from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { StorageService } from './storage.service';
 
@@ -34,7 +41,9 @@ export class AuthService {
   setApiToken(token: string | null) {
     return new Promise((resolve) => {
       if (token) {
-        this._storageService.set(environment.api_token_identifier, token).then(() => resolve(true));
+        this._storageService
+          .set(environment.api_token_identifier, token)
+          .then(() => resolve(true));
       } else {
         this._storageService.remove(environment.api_token_identifier);
         resolve(true);
@@ -50,19 +59,20 @@ export class AuthService {
    * @param {string} credentials.dial_code
    * @returns Observable<any>
    */
-  login(credentials: { username_or_email: string; password: string }): Observable<any> {
-    if (this._isAuthenticated.getValue()) {
-      return throwError(() => new Error('User is already logged in.'));
-    }
+  login(credentials: {
+    username_or_email: string;
+    password: string;
+  }): Observable<any> {
+    return this._http
+      .post(`${environment.api_url}/web/auth/login`, credentials)
+      .pipe(
+        switchMap((res: any) => {
+          this.setApiToken(res.data.token);
+          this._isAuthenticated.next(true);
 
-    return this._http.post(`${environment.api_url}/web/auth/login`, credentials).pipe(
-      switchMap((res: any) => {
-        this.setApiToken(res.data.token);
-        this._isAuthenticated.next(true);
-
-        return of(res);
-      })
-    );
+          return of(res);
+        })
+      );
   }
 
   /**
@@ -72,10 +82,6 @@ export class AuthService {
    * @returns Observable<any>
    */
   loginUsingToken(token: string): Observable<any> {
-    if (this._isAuthenticated.getValue()) {
-      return throwError(() => new Error('User is already logged in.'));
-    }
-
     return from(
       new Promise((resolve) => {
         this.setApiToken(token);

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Qwik Laundry</string>
+    <string name="title_activity_main">Qwik Laundry</string>
+    <string name="package_name">dev.virgiawan.qwik</string>
+    <string name="custom_url_scheme">dev.virgiawan.qwik</string>
+    <string name="server_client_id">805908977032-44vlvqtm84ls1fp8mf2pmav0st1a4ahj.apps.googleusercontent.com</string>
+</resources>
