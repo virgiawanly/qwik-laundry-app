@@ -1,26 +1,20 @@
 <ion-header mode="md" class="page-header">
   <ion-toolbar>
-    <div class="flex items-center justify-between ion-padding py-0 gap-3">
+    <div class="ion-padding flex items-center justify-between gap-3 py-0">
       <div class="flex-1">
         <h2 class="text-lg font-bold">
-          {{ 'settings' | translate |titlecase }}
+          {{ 'settings' | translate | titlecase }}
         </h2>
       </div>
       <div class="flex items-center">
         <div
-          class="flex items-center rounded-[50rem] border border-surface-150 dark:bg-surface-900 dark:border-surface-850 bg-surface-50 px-3 py-1 pl-1 ion-activatable relative overflow-hidden gap-2"
+          class="ion-activatable relative flex items-center gap-2 overflow-hidden rounded-[50rem] border border-surface-150 bg-surface-50 px-3 py-1 pl-1 dark:border-surface-850 dark:bg-surface-900"
         >
-          <div
-            class="size-6 bg-secondary-500 rounded-full aspect-square grid place-items-center text-white"
-          >
+          <div class="grid aspect-square size-6 place-items-center rounded-full bg-secondary-500 text-white">
             <ng-icon name="hugeStoreLocation02" size="0.9rem"></ng-icon>
           </div>
           <div class="w-14 max-w-16">
-            <p
-              class="text-sm font-semibold line-clamp-1 text-surface-800 dark:text-surface-200"
-            >
-              Outlet 1
-            </p>
+            <p class="line-clamp-1 text-sm font-semibold text-surface-800 dark:text-surface-200">Outlet 1</p>
           </div>
           <ion-ripple-effect></ion-ripple-effect>
         </div>
@@ -30,20 +24,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="false" [scrollY]="false" class="page-content">
-  <div class="min-h-screen flex flex-col relative pb-14">
+  <div class="relative flex min-h-screen flex-col pb-14">
     <div
-      class="ion-padding w-full sticky top-0 inset-x-0 bg-surface-light dark:bg-surface-950 z-10 border-b border-surface-100 dark:border-surface-900"
+      class="ion-padding sticky inset-x-0 top-0 z-10 w-full border-b border-surface-100 bg-surface-light dark:border-surface-900 dark:bg-surface-950"
     >
       <div class="flex items-center gap-4">
-        <img
-          src="https://i.pravatar.cc/300"
-          class="w-14 h-14 rounded-full aspect-square object-cover"
-        />
-        <div class="flex flex-col flex-1">
+        <img src="https://i.pravatar.cc/300" class="aspect-square h-14 w-14 rounded-full object-cover" />
+        <div class="flex flex-1 flex-col">
           <h6 class="text-base font-bold">Virgiawan Listiyandi</h6>
-          <p
-            class="text-sm text-surface-800 dark:text-surface-300 flex items-center gap-2"
-          >
+          <p class="flex items-center gap-2 text-sm text-surface-800 dark:text-surface-300">
             <ng-icon name="hugeMail01"></ng-icon>
             <span>{{ 'listiyandiv@gmail.com' }}</span>
           </p>
@@ -53,26 +42,18 @@
         </a>
       </div>
     </div>
-    <ion-content
-      class="flex-1 page-content"
-      [fixedSlotPlacement]="false"
-      [scrollY]="true"
-    >
+    <ion-content class="page-content flex-1" [fixedSlotPlacement]="false" [scrollY]="true">
       <div class="ion-padding grid pb-20">
         <div
-          class="w-full bg-white dark:bg-surface-950 rounded-lg shadow-sm border border-surface-100 dark:border-surface-900 grid divide-y divide-surface-100 dark:divide-surface-900 overflow-hidden"
+          class="grid w-full divide-y divide-surface-100 overflow-hidden rounded-lg border border-surface-100 bg-white shadow-sm dark:divide-surface-900 dark:border-surface-900 dark:bg-surface-950"
         >
-          <div class="flex items-center p-3 gap-4">
-            <div
-              class="size-16 bg-primary-500 rounded-lg text-white grid place-items-center"
-            >
+          <div class="flex items-center gap-4 p-3">
+            <div class="grid size-16 place-items-center rounded-lg bg-primary-500 text-white">
               <ng-icon name="hugeStore02" size="1.75rem"></ng-icon>
             </div>
-            <div class="flex flex-col flex-1">
+            <div class="flex flex-1 flex-col">
               <h5 class="text-base font-bold">Bintaro Sektor 3</h5>
-              <p
-                class="text-sm text-surface-800 dark:text-surface-300 line-clamp-2"
-              >
+              <p class="line-clamp-2 text-sm text-surface-800 dark:text-surface-300">
                 Jl. Bintaro Sektor 3 no. 10, Rengas, Tangerang Banten
               </p>
             </div>
@@ -80,174 +61,150 @@
         </div>
 
         <div class="pb-3 pt-4">
-          <h5
-            class="text-sm font-semibold text-surface-900 dark:text-surface-400"
-          >
-            {{ 'outlet settings' | translate |titlecase }}
+          <h5 class="text-sm font-semibold text-surface-900 dark:text-surface-400">
+            {{ 'outlet settings' | translate | titlecase }}
           </h5>
         </div>
         <div
-          class="w-full bg-white dark:bg-surface-950 rounded-lg shadow-sm border border-surface-100 dark:border-surface-900 grid divide-y divide-surface-100 dark:divide-surface-900 overflow-hidden"
+          class="grid w-full divide-y divide-surface-100 overflow-hidden rounded-lg border border-surface-100 bg-white shadow-sm dark:divide-surface-900 dark:border-surface-900 dark:bg-surface-950"
         >
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeStore02" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'outlet' | translate |titlecase }}</p>
+              <p>{{ 'outlet' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeAccountSetting02" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'employees' | translate |titlecase }}</p>
+              <p>{{ 'employees' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeTimer02" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'service types' | translate |titlecase }}</p>
+              <p>{{ 'service types' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeLongSleeveShirt" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'services' | translate |titlecase }}</p>
+              <p>{{ 'services' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeUserMultiple02" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'customers' | translate |titlecase }}</p>
+              <p>{{ 'customers' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeDashboardSquareAdd" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'add ons' | translate |titlecase }}</p>
+              <p>{{ 'add ons' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
         </div>
-        <div class="pt-4 pb-3">
-          <h5
-            class="text-sm font-semibold text-surface-900 dark:text-surface-400"
-          >
-            {{ 'app settings' | translate |titlecase }}
+        <div class="pb-3 pt-4">
+          <h5 class="text-sm font-semibold text-surface-900 dark:text-surface-400">
+            {{ 'app settings' | translate | titlecase }}
           </h5>
         </div>
         <div
-          class="w-full bg-white dark:bg-surface-950 rounded-lg shadow-sm border border-surface-100 dark:border-surface-900 grid divide-y divide-surface-100 dark:divide-surface-900 overflow-hidden"
+          class="grid w-full divide-y divide-surface-100 overflow-hidden rounded-lg border border-surface-100 bg-white shadow-sm dark:divide-surface-900 dark:border-surface-900 dark:bg-surface-950"
         >
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeLanguageSquare" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'language' | translate |titlecase }}</p>
+              <p>{{ 'language' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeSun02" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'theme' | translate |titlecase }}</p>
+              <p>{{ 'theme' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
-          <a
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
-          >
-            <div class="grid place-items-center w-8">
+          <a class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeInformationCircle" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'about' | translate |titlecase }}</p>
+              <p>{{ 'about' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
         </div>
-        <div class="pt-4 pb-3">
-          <h5
-            class="text-sm font-semibold text-surface-900 dark:text-surface-400"
-          >
-            {{ 'logout' | translate |titlecase }}
+        <div class="pb-3 pt-4">
+          <h5 class="text-sm font-semibold text-surface-900 dark:text-surface-400">
+            {{ 'logout' | translate | titlecase }}
           </h5>
         </div>
         <div
-          class="w-full bg-white dark:bg-surface-950 rounded-lg shadow-sm border border-surface-100 dark:border-surface-900 grid divide-y divide-surface-100 dark:divide-surface-900 overflow-hidden"
+          class="grid w-full divide-y divide-surface-100 overflow-hidden rounded-lg border border-surface-100 bg-white shadow-sm dark:divide-surface-900 dark:border-surface-900 dark:bg-surface-950"
         >
           <a
             routerLink="/auth/login"
-            class="px-3 py-3.5 flex items-center gap-3 justify-start ion-activatable overflow-hidden w-full relative"
+            class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5"
           >
-            <div class="grid place-items-center w-8">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="hugeLogout03" size="1.25rem"></ng-icon>
             </div>
             <div class="flex-1 text-surface-950 dark:text-surface-300">
-              <p>{{ 'logout' | translate |titlecase }}</p>
+              <p>{{ 'logout' | translate | titlecase }}</p>
             </div>
-            <div class="w-8 grid place-items-center">
+            <div class="grid w-8 place-items-center">
               <ng-icon name="lucideChevronRight"></ng-icon>
             </div>
             <ion-ripple-effect></ion-ripple-effect>

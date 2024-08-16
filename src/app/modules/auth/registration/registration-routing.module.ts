@@ -4,17 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./pages/register/register.module').then(
-        (m) => m.RegisterPageModule
-      ),
+    loadChildren: () => import('./pages/register/register.module').then((m) => m.RegisterPageModule),
   },
   {
     path: 'register-company',
     loadChildren: () =>
-      import('./pages/register-company/register-company.module').then(
-        (m) => m.RegisterCompanyPageModule
-      ),
+      import('./pages/register-company/register-company.module').then((m) => m.RegisterCompanyPageModule),
   },
 ];
 

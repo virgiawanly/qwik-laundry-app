@@ -6,8 +6,8 @@ import { CustomerIndexPage } from './customer-index.page';
 const routes: Routes = [
   {
     path: '',
-    component: CustomerIndexPage
-  }
+    component: CustomerIndexPage,
+  },
 ];
 
 @NgModule({

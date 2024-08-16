@@ -1,22 +1,19 @@
-<ion-header
-  mode="md"
-  class="page-header border-b border-surface-100 dark:border-surface-800"
->
+<ion-header mode="md" class="page-header border-b border-surface-100 dark:border-surface-800">
   <ion-toolbar>
-    <div class="flex items-center justify-between ion-padding py-0 gap-3">
+    <div class="ion-padding flex items-center justify-between gap-3 py-0">
       <div class="flex items-center">
         <button
           routerLink="/auth/registration"
           routerDirection="back"
-          class="size-8 aspect-square rounded-full grid place-items-center ion-activatable relative overflow-hidden active:text-primary-500 duration-300"
+          class="ion-activatable relative grid aspect-square size-8 place-items-center overflow-hidden rounded-full duration-300 active:text-primary-500"
         >
           <ng-icon name="lucideChevronLeft" size="1.3rem"></ng-icon>
           <ion-ripple-effect class="text-primary-500"></ion-ripple-effect>
         </button>
       </div>
       <div class="flex-1">
-        <h2 class="text-lg font-bold line-clamp-1">
-          {{ 'registration' | translate |titlecase }}
+        <h2 class="line-clamp-1 text-lg font-bold">
+          {{ 'registration' | translate | titlecase }}
         </h2>
       </div>
     </div>
@@ -25,111 +22,110 @@
 
 <ion-content [fullscreen]="true" class="page-content">
   <form [formGroup]="registerCompanyForm" (ngSubmit)="submit()">
-    <div
-      class="my-2 w-full ion-padding bg-white dark:bg-surface-950 min-h-[84vh]"
-    >
+    <div class="ion-padding my-2 min-h-[84vh] w-full bg-white dark:bg-surface-950">
       <div class="flex flex-col py-4">
-        <h2 class="text-xl font-bold text-surface-dark dark:text-surface-100">
-          Laundry Registration
-        </h2>
-        <p class="text-sm text-surface-800 dark:text-surface-300">
-          Please fill in the laundry/business details below.
-        </p>
+        <h2 class="text-xl font-bold text-surface-dark dark:text-surface-100">Laundry Registration</h2>
+        <p class="text-sm text-surface-800 dark:text-surface-300">Please fill in the laundry/business details below.</p>
       </div>
       <div class="flex flex-col gap-4">
         <div class="w-full">
-          <label
-            for="company-name"
-            class="block mb-2 text-sm font-medium text-surface-dark dark:text-white"
-          >
+          <label for="company-name" class="mb-2 block text-sm font-medium text-surface-dark dark:text-white">
             Laundry Name
           </label>
           <input
             type="text"
             id="company-name"
-            class="form-input form-control w-full"
+            class="form-control form-input w-full"
             placeholder="Enter laundry/business name"
             formControlName="company_name"
-            [ngClass]="{'form-invalid': registerCompanyForm.get('company_name')?.invalid && registerCompanyForm.get('company_name')?.touched}"
+            [ngClass]="{
+              'form-invalid':
+                registerCompanyForm.get('company_name')?.invalid && registerCompanyForm.get('company_name')?.touched,
+            }"
             [maxLength]="255"
           />
-          @if (registerCompanyForm.get('company_name')?.hasError('required') &&
-          registerCompanyForm.get('company_name')?.touched) {
-          <p class="text-sm text-red-500 mt-1">
-            {{ 'field-is-required' | translate: { field: ('company-name' |
-            translate) } }}
-          </p>
+          @if (
+            registerCompanyForm.get('company_name')?.hasError('required') &&
+            registerCompanyForm.get('company_name')?.touched
+          ) {
+            <p class="mt-1 text-sm text-red-500">
+              {{ 'field-is-required' | translate: { field: ('company-name' | translate) } }}
+            </p>
           }
         </div>
         <div class="w-full">
-          <label
-            for="outlet-name"
-            class="block mb-2 text-sm font-medium text-surface-dark dark:text-white"
-          >
+          <label for="outlet-name" class="mb-2 block text-sm font-medium text-surface-dark dark:text-white">
             Outlet Name
           </label>
           <input
             type="text"
             id="outlet-name"
-            class="form-input form-control w-full"
+            class="form-control form-input w-full"
             placeholder="Enter first outlet name"
             formControlName="outlet_name"
-            [ngClass]="{'form-invalid': registerCompanyForm.get('outlet_name')?.invalid && registerCompanyForm.get('outlet_name')?.touched}"
+            [ngClass]="{
+              'form-invalid':
+                registerCompanyForm.get('outlet_name')?.invalid && registerCompanyForm.get('outlet_name')?.touched,
+            }"
             [maxLength]="255"
           />
-          @if (registerCompanyForm.get('outlet_name')?.hasError('required') &&
-          registerCompanyForm.get('outlet_name')?.touched) {
-          <p class="text-sm text-red-500 mt-1">
-            {{ 'field-is-required' | translate: { field: ('outlet-name' |
-            translate) } }}
-          </p>
+          @if (
+            registerCompanyForm.get('outlet_name')?.hasError('required') &&
+            registerCompanyForm.get('outlet_name')?.touched
+          ) {
+            <p class="mt-1 text-sm text-red-500">
+              {{ 'field-is-required' | translate: { field: ('outlet-name' | translate) } }}
+            </p>
           }
         </div>
         <div class="w-full">
-          <label
-            for="outlet-phone-number"
-            class="block mb-2 text-sm font-medium text-surface-dark dark:text-white"
-          >
+          <label for="outlet-phone-number" class="mb-2 block text-sm font-medium text-surface-dark dark:text-white">
             Phone Number
           </label>
           <input
             type="tel"
             id="outlet-phone-number"
-            class="form-input form-control w-full"
+            class="form-control form-input w-full"
             placeholder="Enter outlet phone number"
             formControlName="outlet_phone"
-            [ngClass]="{'form-invalid': registerCompanyForm.get('outlet_phone')?.invalid && registerCompanyForm.get('outlet_phone')?.touched}"
+            [ngClass]="{
+              'form-invalid':
+                registerCompanyForm.get('outlet_phone')?.invalid && registerCompanyForm.get('outlet_phone')?.touched,
+            }"
             [maxLength]="100"
           />
-          @if (registerCompanyForm.get('outlet_phone')?.hasError('required') &&
-          registerCompanyForm.get('outlet_phone')?.touched) {
-          <p class="text-sm text-red-500 mt-1">
-            {{ 'field-is-required' | translate: { field: ('outlet-phone-number'
-            | translate) } }}
-          </p>
+          @if (
+            registerCompanyForm.get('outlet_phone')?.hasError('required') &&
+            registerCompanyForm.get('outlet_phone')?.touched
+          ) {
+            <p class="mt-1 text-sm text-red-500">
+              {{ 'field-is-required' | translate: { field: ('outlet-phone-number' | translate) } }}
+            </p>
           }
         </div>
         <div class="w-full">
-          <label
-            for="outlet-address"
-            class="block mb-2 text-sm font-medium text-surface-dark dark:text-white"
-          >
+          <label for="outlet-address" class="mb-2 block text-sm font-medium text-surface-dark dark:text-white">
             Address
           </label>
           <textarea
             id="outlet-address"
             placeholder="Enter outlet address"
-            class="form-input form-control w-full resize-none"
+            class="form-control form-input w-full resize-none"
             rows="3"
             formControlName="outlet_address"
-            [ngClass]="{'form-invalid': registerCompanyForm.get('outlet_address')?.invalid && registerCompanyForm.get('outlet_address')?.touched}"
+            [ngClass]="{
+              'form-invalid':
+                registerCompanyForm.get('outlet_address')?.invalid &&
+                registerCompanyForm.get('outlet_address')?.touched,
+            }"
           ></textarea>
-          @if (registerCompanyForm.get('outlet_address')?.hasError('required')
-          && registerCompanyForm.get('outlet_address')?.touched) {
-          <p class="text-sm text-red-500 mt-1">
-            {{ 'field-is-required' | translate: { field: 'outlet-address' |
-            translate } }}
-          </p>
+          @if (
+            registerCompanyForm.get('outlet_address')?.hasError('required') &&
+            registerCompanyForm.get('outlet_address')?.touched
+          ) {
+            <p class="mt-1 text-sm text-red-500">
+              {{ 'field-is-required' | translate: { field: 'outlet-address' | translate } }}
+            </p>
           }
         </div>
       </div>
@@ -139,17 +135,17 @@
 
 <ion-footer mode="md">
   <ion-toolbar class="ion-no-padding">
-    <div class="w-full ion-padding">
+    <div class="ion-padding w-full">
       <button
         type="button"
-        class="text-white bg-primary-500 disabled:bg-primary-400 rounded-lg text-sm px-5 h-10 grid place-items-center focus:outline-none font-bold w-full ion-activatable relative overflow-hidden"
+        class="ion-activatable relative grid h-10 w-full place-items-center overflow-hidden rounded-lg bg-primary-500 px-5 text-sm font-bold text-white focus:outline-none disabled:bg-primary-400"
         [disabled]="isSubmitting"
         (click)="submit()"
       >
         @if (isSubmitting) {
-        <ion-spinner class="size-4" color="light"></ion-spinner>
+          <ion-spinner class="size-4" color="light"></ion-spinner>
         } @else {
-        <span>{{ 'register' | translate | titlecase }}</span>
+          <span>{{ 'register' | translate | titlecase }}</span>
         }
         <ion-ripple-effect></ion-ripple-effect>
       </button>

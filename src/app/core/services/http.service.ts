@@ -176,11 +176,7 @@ export class HttpService {
    * @param {string} namespace - The namespace of the object.
    * @return FormData - The FormData object.
    */
-  public convertToFormData(
-    obj: any,
-    form?: FormData,
-    namespace?: string
-  ): FormData {
+  public convertToFormData(obj: any, form?: FormData, namespace?: string): FormData {
     const fd = form || new FormData();
     let formKey;
 
@@ -188,20 +184,13 @@ export class HttpService {
       if (obj.hasOwnProperty(property)) {
         if (namespace) {
           // For nested objects
-          formKey = `${namespace}[${
-            Object.prototype.toString.call(obj) === '[object Array]'
-              ? ''
-              : property
-          }]`;
+          formKey = `${namespace}[${Object.prototype.toString.call(obj) === '[object Array]' ? '' : property}]`;
         } else {
           formKey = property;
         }
 
         // if the property is an object, but not a File, use recursion.
-        if (
-          typeof obj[property] === 'object' &&
-          !(obj[property] instanceof File)
-        ) {
+        if (typeof obj[property] === 'object' && !(obj[property] instanceof File)) {
           this.convertToFormData(obj[property], fd, property);
         } else {
           // if it's a string or a File object

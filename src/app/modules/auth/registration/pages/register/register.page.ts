@@ -38,10 +38,7 @@ export class RegisterPage {
     this.isSubmitting = true;
     this.registerForm.disable();
     this._httpService
-      .post(
-        'mobile/auth/registration/validate-account',
-        this.registerForm.value
-      )
+      .post('mobile/auth/registration/validate-account', this.registerForm.value)
       .subscribe({
         next: () => {
           this._router.navigateByUrl('/auth/registration/register-company', {
@@ -70,11 +67,7 @@ export class RegisterPage {
     GoogleAuth.signIn()
       .then((user) => {
         this._httpService
-          .post(
-            `mobile/auth/google/authenticate`,
-            { token: user.authentication.idToken },
-            { withCredentials: false }
-          )
+          .post(`mobile/auth/google/authenticate`, { token: user.authentication.idToken }, { withCredentials: false })
           .subscribe({
             next: (res: any) => {
               // Next action to perform
@@ -90,10 +83,9 @@ export class RegisterPage {
                 });
               } else if (action === 'register') {
                 const registrationToken = res.data.registration_token;
-                this._router.navigateByUrl(
-                  '/auth/registration/register-company',
-                  { state: { registration_token: registrationToken } }
-                );
+                this._router.navigateByUrl('/auth/registration/register-company', {
+                  state: { registration_token: registrationToken },
+                });
               } else {
                 throw new Error('Invalid action');
               }

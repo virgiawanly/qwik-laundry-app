@@ -6,8 +6,8 @@ import { SettingIndexPage } from './setting-index.page';
 const routes: Routes = [
   {
     path: '',
-    component: SettingIndexPage
-  }
+    component: SettingIndexPage,
+  },
 ];
 
 @NgModule({

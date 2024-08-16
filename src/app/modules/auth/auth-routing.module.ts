@@ -6,16 +6,12 @@ const routes: Routes = [
   {
     path: 'login',
     canActivate: [noAuthGuard],
-    loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginModule),
+    loadChildren: () => import('./login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'registration',
     canActivate: [noAuthGuard],
-    loadChildren: () =>
-      import('./registration/registration.module').then(
-        (m) => m.RegistrationModule
-      ),
+    loadChildren: () => import('./registration/registration.module').then((m) => m.RegistrationModule),
   },
   {
     path: '',

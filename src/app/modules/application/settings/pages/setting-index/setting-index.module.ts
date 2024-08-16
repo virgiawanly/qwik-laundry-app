@@ -21,7 +21,7 @@ import {
   hugeStoreLocation02,
   hugeSun02,
   hugeTimer02,
-  hugeUserMultiple02
+  hugeUserMultiple02,
 } from '@ng-icons/huge-icons';
 import { lucideChevronRight } from '@ng-icons/lucide';
 import { TranslateModule } from '@ngx-translate/core';

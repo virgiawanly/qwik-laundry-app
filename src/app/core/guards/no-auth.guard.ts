@@ -7,10 +7,7 @@ export const noAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const authService = inject(AuthService);
 
-  return combineLatest([
-    authService.isInitialized(),
-    authService.observe(),
-  ]).pipe(
+  return combineLatest([authService.isInitialized(), authService.observe()]).pipe(
     switchMap(([isInitialized, authenticated]) => {
       if (!isInitialized) {
         // If initialization is not complete, wait until it is

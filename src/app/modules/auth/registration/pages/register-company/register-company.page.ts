@@ -39,11 +39,7 @@ export class RegisterCompanyPage implements OnInit {
     }
 
     const isEmailRegistration =
-      state &&
-      !!state['name'] &&
-      !!state['email'] &&
-      !!state['password'] &&
-      !!state['password_confirmation'];
+      state && !!state['name'] && !!state['email'] && !!state['password'] && !!state['password_confirmation'];
 
     const isGoogleRegistration = state && state['registration_token'];
 
@@ -78,9 +74,7 @@ export class RegisterCompanyPage implements OnInit {
     }
 
     const url =
-      this.registerMethod === 'google'
-        ? 'mobile/auth/registration/google'
-        : 'mobile/auth/registration/register';
+      this.registerMethod === 'google' ? 'mobile/auth/registration/google' : 'mobile/auth/registration/register';
 
     const payload = {
       ...this.stateRegistrationPayload,

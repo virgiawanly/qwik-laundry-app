@@ -1,219 +1,191 @@
 <ion-content [fullscreen]="true">
-  <div class="min-h-screen flex flex-col">
-    <div
-      class="h-[15vh] min-h-24 bg-primary-500 w-full grid place-items-center pb-6 -mb-6"
-    >
-      <img
-        src="/assets/images/logo-white-text.svg"
-        class="w-44 md:w-36 max-w-full h-auto"
-      />
+  <div class="flex min-h-screen flex-col">
+    <div class="-mb-6 grid h-[15vh] min-h-24 w-full place-items-center bg-primary-500 pb-6">
+      <img src="/assets/images/logo-white-text.svg" class="h-auto w-44 max-w-full md:w-36" />
     </div>
-    <div
-      class="bg-white dark:bg-surface-dark flex-1 overflow-y-auto ion-padding rounded-t-2xl"
-    >
-      <div class="max-w-2xl mx-auto xl:mt-12">
-        <div class="flex flex-col mb-6">
+    <div class="ion-padding flex-1 overflow-y-auto rounded-t-2xl bg-white dark:bg-surface-dark">
+      <div class="mx-auto max-w-2xl xl:mt-12">
+        <div class="mb-6 flex flex-col">
           <div class="flex flex-col py-8">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-surface-100">
-              Register
-            </h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              Create a new Qwik Laundry account.
-            </p>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-surface-100">Register</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Create a new Qwik Laundry account.</p>
           </div>
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
             <div class="flex flex-col gap-4">
               <div class="w-full">
-                <label
-                  for="name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Name
-                </label>
+                <label for="name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Name </label>
                 <div class="relative">
-                  <div
-                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
-                  >
+                  <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
                     <ng-icon
                       name="lucideUser"
                       size="1rem"
                       class="text-gray-600 dark:text-gray-500"
-                      [ngClass]="{'!text-red-500': registerForm.get('name')?.invalid && registerForm.get('name')?.touched}"
+                      [ngClass]="{
+                        '!text-red-500': registerForm.get('name')?.invalid && registerForm.get('name')?.touched,
+                      }"
                     ></ng-icon>
                   </div>
                   <input
                     type="text"
                     id="name"
                     formControlName="name"
-                    class="form-input form-control w-full pl-10"
+                    class="form-control form-input w-full pl-10"
                     placeholder="Enter your full name"
-                    [ngClass]="{'form-invalid': registerForm.get('name')?.invalid && registerForm.get('name')?.touched}"
+                    [ngClass]="{
+                      'form-invalid': registerForm.get('name')?.invalid && registerForm.get('name')?.touched,
+                    }"
                   />
                 </div>
-                @if (registerForm.get('name')?.hasError('required') &&
-                registerForm.get('name')?.touched) {
-                <p class="text-sm text-red-500 mt-1">
-                  {{ 'field-is-required' | translate: { field: 'Name' } }}
-                </p>
+                @if (registerForm.get('name')?.hasError('required') && registerForm.get('name')?.touched) {
+                  <p class="mt-1 text-sm text-red-500">
+                    {{ 'field-is-required' | translate: { field: 'Name' } }}
+                  </p>
                 }
               </div>
               <div class="w-full">
-                <label
-                  for="email"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Email
-                </label>
+                <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Email </label>
                 <div class="relative">
-                  <div
-                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
-                  >
+                  <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
                     <ng-icon
                       name="lucideMail"
                       size="1rem"
                       class="text-gray-600 dark:text-gray-500"
-                      [ngClass]="{'!text-red-500': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}"
+                      [ngClass]="{
+                        '!text-red-500': registerForm.get('email')?.invalid && registerForm.get('email')?.touched,
+                      }"
                     ></ng-icon>
                   </div>
                   <input
                     type="text"
                     id="email"
                     formControlName="email"
-                    class="form-input form-control w-full pl-10"
+                    class="form-control form-input w-full pl-10"
                     placeholder="Enter your email"
-                    [ngClass]="{'form-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}"
+                    [ngClass]="{
+                      'form-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched,
+                    }"
                   />
                 </div>
-                @if (registerForm.get('email')?.hasError('required') &&
-                registerForm.get('email')?.touched) {
-                <p class="text-sm text-red-500 mt-1">
-                  {{ 'field-is-required' | translate: { field: 'Email' } }}
-                </p>
-                } @else if (registerForm.get('email')?.hasError('email') &&
-                registerForm.get('email')?.touched ) {
-                <p class="text-sm text-red-500 mt-1">
-                  {{ 'field-must-be-an-email' | translate: { field: 'Email' } }}
-                </p>
+                @if (registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched) {
+                  <p class="mt-1 text-sm text-red-500">
+                    {{ 'field-is-required' | translate: { field: 'Email' } }}
+                  </p>
+                } @else if (registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched) {
+                  <p class="mt-1 text-sm text-red-500">
+                    {{ 'field-must-be-an-email' | translate: { field: 'Email' } }}
+                  </p>
                 }
               </div>
               <div class="w-full">
-                <label
-                  for="password"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                <label for="password" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                   Password
                 </label>
                 <div class="relative">
-                  <div
-                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
-                  >
+                  <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
                     <ng-icon
                       name="lucideLock"
                       size="1rem"
                       class="text-gray-600 dark:text-gray-500"
-                      [ngClass]="{'!text-red-500': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}"
+                      [ngClass]="{
+                        '!text-red-500': registerForm.get('password')?.invalid && registerForm.get('password')?.touched,
+                      }"
                     ></ng-icon>
                   </div>
                   <input
                     type="password"
                     id="password"
                     formControlName="password"
-                    class="form-input form-control w-full pl-10"
+                    class="form-control form-input w-full pl-10"
                     placeholder="Enter your password"
-                    [ngClass]="{'form-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}"
+                    [ngClass]="{
+                      'form-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched,
+                    }"
                   />
                 </div>
-                @if (registerForm.get('password')?.hasError('required') &&
-                registerForm.get('password')?.touched) {
-                <p class="text-sm text-red-500 mt-1">
-                  {{ 'field-is-required' | translate: { field: 'Password' } }}
-                </p>
+                @if (registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched) {
+                  <p class="mt-1 text-sm text-red-500">
+                    {{ 'field-is-required' | translate: { field: 'Password' } }}
+                  </p>
                 }
               </div>
               <div class="w-full">
-                <label
-                  for="password-confirmation"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                <label for="password-confirmation" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                   Confirm Password
                 </label>
                 <div class="relative">
-                  <div
-                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
-                  >
+                  <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
                     <ng-icon
                       name="lucideLock"
                       size="1rem"
                       class="text-gray-600 dark:text-gray-500"
-                      [ngClass]="{'!text-red-500': registerForm.get('password_confirmation')?.invalid && registerForm.get('password_confirmation')?.touched}"
+                      [ngClass]="{
+                        '!text-red-500':
+                          registerForm.get('password_confirmation')?.invalid &&
+                          registerForm.get('password_confirmation')?.touched,
+                      }"
                     ></ng-icon>
                   </div>
                   <input
                     type="password"
                     id="password-confirmation"
-                    class="form-input form-control w-full pl-10"
+                    class="form-control form-input w-full pl-10"
                     placeholder="Enter password confirmation"
                     formControlName="password_confirmation"
-                    [ngClass]="{'form-invalid': registerForm.get('password_confirmation')?.invalid && registerForm.get('password_confirmation')?.touched}"
+                    [ngClass]="{
+                      'form-invalid':
+                        registerForm.get('password_confirmation')?.invalid &&
+                        registerForm.get('password_confirmation')?.touched,
+                    }"
                   />
                 </div>
-                @if
-                (registerForm.get('password_confirmation')?.hasError('required')
-                && registerForm.get('password_confirmation')?.touched) {
-                <p class="text-sm text-red-500 mt-1">
-                  {{ 'field-is-required' | translate: { field:
-                  ('password-confirmation' | translate) } }}
-                </p>
+                @if (
+                  registerForm.get('password_confirmation')?.hasError('required') &&
+                  registerForm.get('password_confirmation')?.touched
+                ) {
+                  <p class="mt-1 text-sm text-red-500">
+                    {{ 'field-is-required' | translate: { field: ('password-confirmation' | translate) } }}
+                  </p>
                 }
               </div>
-              <div class="w-full mt-2">
+              <div class="mt-2 w-full">
                 <button
                   type="submit"
-                  class="text-white bg-primary-500 disabled:bg-primary-400 rounded-lg text-sm px-5 h-10 grid place-items-center focus:outline-none font-bold w-full ion-activatable relative overflow-hidden"
+                  class="ion-activatable relative grid h-10 w-full place-items-center overflow-hidden rounded-lg bg-primary-500 px-5 text-sm font-bold text-white focus:outline-none disabled:bg-primary-400"
                   [disabled]="isSubmitting"
                 >
                   @if (isSubmitting) {
-                  <ion-spinner class="size-4" color="light"></ion-spinner>
+                    <ion-spinner class="size-4" color="light"></ion-spinner>
                   } @else {
-                  <span>{{ 'continue' | translate |titlecase }}</span>
+                    <span>{{ 'continue' | translate | titlecase }}</span>
                   }
                   <ion-ripple-effect></ion-ripple-effect>
                 </button>
               </div>
             </div>
           </form>
-          <div class="flex items-center gap-3 pt-4 pb-6">
-            <hr
-              class="flex-1 border border-0.5 border-surface-100 dark:border-surface-900"
-            />
-            <p class="text-surface-700 tracking-wide text-sm uppercase">OR</p>
-            <hr
-              class="flex-1 border border-0.5 border-surface-100 dark:border-surface-900"
-            />
+          <div class="flex items-center gap-3 pb-6 pt-4">
+            <hr class="border-0.5 flex-1 border border-surface-100 dark:border-surface-900" />
+            <p class="text-sm uppercase tracking-wide text-surface-700">OR</p>
+            <hr class="border-0.5 flex-1 border border-surface-100 dark:border-surface-900" />
           </div>
           <div class="flex flex-col">
             <div class="w-full">
               <button
                 type="button"
-                class="text-surface-dark dark:text-white bg-transparent rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none font-medium w-full flex items-center justify-center gap-3 border border-solid border-surface-200 dark:border-surface-800 ion-activatable relative overflow-hidden"
+                class="ion-activatable relative mb-2 me-2 flex w-full items-center justify-center gap-3 overflow-hidden rounded-lg border border-solid border-surface-200 bg-transparent px-5 py-2.5 text-sm font-medium text-surface-dark focus:outline-none dark:border-surface-800 dark:text-white"
                 (click)="registerWithGoogle()"
               >
-                <img
-                  src="/assets/images/google-logo.svg"
-                  class="h-5 w-auto object-contain"
-                />
+                <img src="/assets/images/google-logo.svg" class="h-5 w-auto object-contain" />
                 <span>Continue with Google</span>
                 <ion-ripple-effect></ion-ripple-effect>
               </button>
             </div>
           </div>
         </div>
-        <div class="text-center mb-5">
+        <div class="mb-5 text-center">
           <p class="text-sm text-gray-500 dark:text-gray-400">
             Already have an account?
-            <a routerLink="/auth/login" class="font-semibold text-primary-500">
-              Login
-            </a>
+            <a routerLink="/auth/login" class="font-semibold text-primary-500"> Login </a>
           </p>
         </div>
       </div>

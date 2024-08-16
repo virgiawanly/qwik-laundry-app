@@ -1,13 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  Observable,
-  from,
-  of,
-  switchMap,
-  throwError,
-} from 'rxjs';
+import { BehaviorSubject, Observable, from, of, switchMap, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { StorageService } from './storage.service';
 
@@ -41,9 +34,7 @@ export class AuthService {
   setApiToken(token: string | null) {
     return new Promise((resolve) => {
       if (token) {
-        this._storageService
-          .set(environment.api_token_identifier, token)
-          .then(() => resolve(true));
+        this._storageService.set(environment.api_token_identifier, token).then(() => resolve(true));
       } else {
         this._storageService.remove(environment.api_token_identifier);
         resolve(true);
@@ -60,16 +51,14 @@ export class AuthService {
    * @returns Observable<any>
    */
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this._http
-      .post(`${environment.api_url}/mobile/auth/login`, credentials)
-      .pipe(
-        switchMap((res: any) => {
-          this.setApiToken(res.data.token);
-          this._isAuthenticated.next(true);
+    return this._http.post(`${environment.api_url}/mobile/auth/login`, credentials).pipe(
+      switchMap((res: any) => {
+        this.setApiToken(res.data.token);
+        this._isAuthenticated.next(true);
 
-          return of(res);
-        })
-      );
+        return of(res);
+      })
+    );
   }
 
   /**

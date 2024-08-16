@@ -9,10 +9,7 @@ const routes: Routes = [
     path: '',
     component: ApplicationLayoutComponent,
     canActivate: [authGuard],
-    loadChildren: () =>
-      import('./application-tab-routing.module').then(
-        (m) => m.ApplicationTabRoutingModule
-      ),
+    loadChildren: () => import('./application-tab-routing.module').then((m) => m.ApplicationTabRoutingModule),
   },
   {
     path: 'home',
@@ -22,28 +19,22 @@ const routes: Routes = [
   {
     path: 'transactions',
     canActivate: [authGuard],
-    loadChildren: () =>
-      import('./transactions/transactions.module').then(
-        (m) => m.TransactionsModule
-      ),
+    loadChildren: () => import('./transactions/transactions.module').then((m) => m.TransactionsModule),
   },
   {
     path: 'reports',
     canActivate: [authGuard],
-    loadChildren: () =>
-      import('./reports/reports.module').then((m) => m.ReportsModule),
+    loadChildren: () => import('./reports/reports.module').then((m) => m.ReportsModule),
   },
   {
     path: 'settings',
     canActivate: [authGuard],
-    loadChildren: () =>
-      import('./settings/settings.module').then((m) => m.SettingsModule),
+    loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule),
   },
   {
     path: 'customers',
     canActivate: [authGuard],
-    loadChildren: () =>
-      import('./customers/customers.module').then((m) => m.CustomersModule),
+    loadChildren: () => import('./customers/customers.module').then((m) => m.CustomersModule),
   },
 ];
 

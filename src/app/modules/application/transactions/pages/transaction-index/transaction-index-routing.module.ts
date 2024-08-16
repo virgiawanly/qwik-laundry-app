@@ -6,8 +6,8 @@ import { TransactionIndexPage } from './transaction-index.page';
 const routes: Routes = [
   {
     path: '',
-    component: TransactionIndexPage
-  }
+    component: TransactionIndexPage,
+  },
 ];
 
 @NgModule({

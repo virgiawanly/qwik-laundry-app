@@ -9,12 +9,7 @@ import { ReportIndexPageRoutingModule } from './report-index-routing.module';
 import { ReportIndexPage } from './report-index.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ReportIndexPageRoutingModule
-  ],
-  declarations: [ReportIndexPage]
+  imports: [CommonModule, FormsModule, IonicModule, ReportIndexPageRoutingModule],
+  declarations: [ReportIndexPage],
 })
 export class ReportIndexPageModule {}
