@@ -7,13 +7,17 @@
       <div class="mx-auto max-w-2xl xl:mt-12">
         <div class="mb-6 flex flex-col">
           <div class="flex flex-col py-8">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-surface-100">Register</h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Create a new Qwik Laundry account.</p>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-surface-100">
+              {{ 'registration.title' | translate }}
+            </h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'registration.subtitle' | translate }}</p>
           </div>
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
             <div class="flex flex-col gap-4">
               <div class="w-full">
-                <label for="name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Name </label>
+                <label for="name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  {{ 'registration.name.label' | translate }}
+                </label>
                 <div class="relative">
                   <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
                     <ng-icon
@@ -30,7 +34,7 @@
                     id="name"
                     formControlName="name"
                     class="form-control form-input w-full pl-10"
-                    placeholder="Enter your full name"
+                    [placeholder]="'registration.name.placeholder' | translate"
                     [ngClass]="{
                       'form-invalid': registerForm.get('name')?.invalid && registerForm.get('name')?.touched,
                     }"
@@ -38,12 +42,14 @@
                 </div>
                 @if (registerForm.get('name')?.hasError('required') && registerForm.get('name')?.touched) {
                   <p class="mt-1 text-sm text-red-500">
-                    {{ 'field-is-required' | translate: { field: 'Name' } }}
+                    {{ 'forms.validation.required' | translate }}
                   </p>
                 }
               </div>
               <div class="w-full">
-                <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Email </label>
+                <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  {{ 'registration.email.label' | translate }}
+                </label>
                 <div class="relative">
                   <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
                     <ng-icon
@@ -60,7 +66,7 @@
                     id="email"
                     formControlName="email"
                     class="form-control form-input w-full pl-10"
-                    placeholder="Enter your email"
+                    [placeholder]="'registration.email.placeholder' | translate"
                     [ngClass]="{
                       'form-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched,
                     }"
@@ -68,17 +74,17 @@
                 </div>
                 @if (registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched) {
                   <p class="mt-1 text-sm text-red-500">
-                    {{ 'field-is-required' | translate: { field: 'Email' } }}
+                    {{ 'forms.validation.required' | translate }}
                   </p>
                 } @else if (registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched) {
                   <p class="mt-1 text-sm text-red-500">
-                    {{ 'field-must-be-an-email' | translate: { field: 'Email' } }}
+                    {{ 'forms.validation.email' | translate }}
                   </p>
                 }
               </div>
               <div class="w-full">
                 <label for="password" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                  Password
+                  {{ 'registration.password.label' | translate }}
                 </label>
                 <div class="relative">
                   <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
@@ -96,7 +102,7 @@
                     id="password"
                     formControlName="password"
                     class="form-control form-input w-full pl-10"
-                    placeholder="Enter your password"
+                    [placeholder]="'registration.password.placeholder' | translate"
                     [ngClass]="{
                       'form-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched,
                     }"
@@ -104,13 +110,13 @@
                 </div>
                 @if (registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched) {
                   <p class="mt-1 text-sm text-red-500">
-                    {{ 'field-is-required' | translate: { field: 'Password' } }}
+                    {{ 'forms.validation.required' | translate }}
                   </p>
                 }
               </div>
               <div class="w-full">
                 <label for="password-confirmation" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                  Confirm Password
+                  {{ 'registration.password-confirm.label' | translate }}
                 </label>
                 <div class="relative">
                   <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
@@ -129,8 +135,8 @@
                     type="password"
                     id="password-confirmation"
                     class="form-control form-input w-full pl-10"
-                    placeholder="Enter password confirmation"
                     formControlName="password_confirmation"
+                    [placeholder]="'registration.password-confirm.placeholder' | translate"
                     [ngClass]="{
                       'form-invalid':
                         registerForm.get('password_confirmation')?.invalid &&
@@ -143,7 +149,7 @@
                   registerForm.get('password_confirmation')?.touched
                 ) {
                   <p class="mt-1 text-sm text-red-500">
-                    {{ 'field-is-required' | translate: { field: ('password-confirmation' | translate) } }}
+                    {{ 'forms.validation.required' | translate }}
                   </p>
                 }
               </div>
@@ -156,16 +162,18 @@
                   @if (isSubmitting) {
                     <ion-spinner class="size-4" color="light"></ion-spinner>
                   } @else {
-                    <span>{{ 'continue' | translate | titlecase }}</span>
+                    <span>{{ 'registration.button.continue' | translate | titlecase }}</span>
                   }
                   <ion-ripple-effect></ion-ripple-effect>
                 </button>
               </div>
             </div>
           </form>
-          <div class="flex items-center gap-3 pb-6 pt-4">
+          <div class="flex items-center gap-3 py-6">
             <hr class="border-0.5 flex-1 border border-surface-100 dark:border-surface-900" />
-            <p class="text-sm uppercase tracking-wide text-surface-700">OR</p>
+            <p class="text-sm uppercase tracking-wide text-surface-700">
+              {{ 'registration.or' | translate }}
+            </p>
             <hr class="border-0.5 flex-1 border border-surface-100 dark:border-surface-900" />
           </div>
           <div class="flex flex-col">
@@ -176,7 +184,7 @@
                 (click)="registerWithGoogle()"
               >
                 <img src="/assets/images/google-logo.svg" class="h-5 w-auto object-contain" />
-                <span>Continue with Google</span>
+                <span>{{ 'registration.button.google' | translate }}</span>
                 <ion-ripple-effect></ion-ripple-effect>
               </button>
             </div>
@@ -184,8 +192,10 @@
         </div>
         <div class="mb-5 text-center">
           <p class="text-sm text-gray-500 dark:text-gray-400">
-            Already have an account?
-            <a routerLink="/auth/login" class="font-semibold text-primary-500"> Login </a>
+            {{ 'registration.have-account' | translate }}
+            <a routerLink="/auth/login" class="font-semibold text-primary-500">
+              {{ 'registration.login' | translate }}
+            </a>
           </p>
         </div>
       </div>

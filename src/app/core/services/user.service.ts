@@ -96,7 +96,7 @@ export class UserService {
    */
   loadUserDataFromStorage() {
     this._isLoadingUser$.next(true);
-    this._storageService.get('mstSales@user').then((user) => {
+    this._storageService.get('qwik@user').then((user) => {
       if (user) {
         this.setUser(user);
         this._isLoadingUser$.next(false);
@@ -113,7 +113,7 @@ export class UserService {
    * @return void
    */
   clearUserDataFromStorage() {
-    this._storageService.remove('mstSales@user');
+    this._storageService.remove('qwik@user');
   }
 
   /**
@@ -129,7 +129,7 @@ export class UserService {
         const user = res.data.user;
 
         this.setUser(user);
-        this._storageService.set('mstSales@user', user);
+        this._storageService.set('qwik@user', user);
 
         return user;
       }),

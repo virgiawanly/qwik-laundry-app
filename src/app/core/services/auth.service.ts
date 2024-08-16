@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, from, of, switchMap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, from, of, switchMap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { StorageService } from './storage.service';
 
@@ -83,10 +83,18 @@ export class AuthService {
    * @returns Observable<boolean>
    */
   logout(): Observable<boolean> {
-    this.setApiToken(null);
-    this._isAuthenticated.next(false);
-
-    return of(true);
+    return from(this._storageService.get(environment.api_token_identifier)).pipe(
+      switchMap((token) => {
+        const url = `${environment.api_url}/mobile/auth/logout`;
+        return this._http.post(url, null, { headers: { Authorization: `Bearer ${token}` } }).pipe(
+          switchMap((res: any) => {
+            this.setApiToken(null);
+            this._isAuthenticated.next(false);
+            return of(res);
+          })
+        );
+      })
+    );
   }
 
   /**

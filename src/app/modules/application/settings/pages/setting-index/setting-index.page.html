@@ -195,8 +195,8 @@
           class="grid w-full divide-y divide-surface-100 overflow-hidden rounded-lg border border-surface-100 bg-white shadow-sm dark:divide-surface-900 dark:border-surface-900 dark:bg-surface-950"
         >
           <a
-            routerLink="/auth/login"
             class="ion-activatable relative flex w-full items-center justify-start gap-3 overflow-hidden px-3 py-3.5"
+            (click)="openLogoutConfirmation()"
           >
             <div class="grid w-8 place-items-center">
               <ng-icon name="hugeLogout03" size="1.25rem"></ng-icon>
@@ -204,13 +204,14 @@
             <div class="flex-1 text-surface-950 dark:text-surface-300">
               <p>{{ 'logout' | translate | titlecase }}</p>
             </div>
-            <div class="grid w-8 place-items-center">
-              <ng-icon name="lucideChevronRight"></ng-icon>
-            </div>
             <ion-ripple-effect></ion-ripple-effect>
           </a>
         </div>
       </div>
     </ion-content>
   </div>
+
+  <!-- Logout Loading -->
+  <ion-loading [isOpen]="isLoggingOut" [message]="'settings.logout.loading' | translate"></ion-loading>
+  <!-- ! Logout Loading -->
 </ion-content>
