@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, from, of, switchMap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, from, of, switchMap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { StorageService } from './storage.service';
 
@@ -46,16 +46,12 @@ export class AuthService {
    * Verify the user phone number and send OTP code.
    *
    * @param {Object} credentials
-   * @param {string} credentials.phone_number
-   * @param {string} credentials.dial_code
+   * @param {string} credentials.email
+   * @param {string} credentials.password
    * @returns Observable<any>
    */
-  login(credentials: { username_or_email: string; password: string }): Observable<any> {
-    if (this._isAuthenticated.getValue()) {
-      return throwError(() => new Error('User is already logged in.'));
-    }
-
-    return this._http.post(`${environment.api_url}/web/auth/login`, credentials).pipe(
+  login(credentials: { email: string; password: string }): Observable<any> {
+    return this._http.post(`${environment.api_url}/mobile/auth/login`, credentials).pipe(
       switchMap((res: any) => {
         this.setApiToken(res.data.token);
         this._isAuthenticated.next(true);
@@ -72,10 +68,6 @@ export class AuthService {
    * @returns Observable<any>
    */
   loginUsingToken(token: string): Observable<any> {
-    if (this._isAuthenticated.getValue()) {
-      return throwError(() => new Error('User is already logged in.'));
-    }
-
     return from(
       new Promise((resolve) => {
         this.setApiToken(token);
@@ -91,10 +83,18 @@ export class AuthService {
    * @returns Observable<boolean>
    */
   logout(): Observable<boolean> {
-    this.setApiToken(null);
-    this._isAuthenticated.next(false);
-
-    return of(true);
+    return from(this._storageService.get(environment.api_token_identifier)).pipe(
+      switchMap((token) => {
+        const url = `${environment.api_url}/mobile/auth/logout`;
+        return this._http.post(url, null, { headers: { Authorization: `Bearer ${token}` } }).pipe(
+          switchMap((res: any) => {
+            this.setApiToken(null);
+            this._isAuthenticated.next(false);
+            return of(res);
+          })
+        );
+      })
+    );
   }
 
   /**

@@ -6,8 +6,8 @@ import { ReportIndexPage } from './report-index.page';
 const routes: Routes = [
   {
     path: '',
-    component: ReportIndexPage
-  }
+    component: ReportIndexPage,
+  },
 ];
 
 @NgModule({

@@ -15,7 +15,7 @@ export class ThemeService {
 
   constructor(private _storageService: StorageService) {
     // Load the dark mode from the storage.
-    this._storageService.get('mstSales@darkMode').then((isDarkMode) => {
+    this._storageService.get('qwik@darkMode').then((isDarkMode) => {
       this._isDarkMode$.next(isDarkMode);
     });
   }
@@ -28,7 +28,7 @@ export class ThemeService {
    */
   setDarkMode(isDarkMode: boolean) {
     this._isDarkMode$.next(isDarkMode);
-    this._storageService.set('mstSales@darkMode', isDarkMode);
+    this._storageService.set('qwik@darkMode', isDarkMode);
   }
 
   /**

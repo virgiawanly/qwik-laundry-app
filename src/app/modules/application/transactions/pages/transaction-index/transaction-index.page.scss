@@ -2,6 +2,6 @@ ion-segment {
   ion-segment-button {
     --indicator-transform: scaleX(0.5);
 
-    @apply text-sm tracking-normal normal-case font-medium;
+    @apply text-sm font-medium normal-case tracking-normal;
   }
 }

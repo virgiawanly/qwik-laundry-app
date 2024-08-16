@@ -9,8 +9,8 @@ describe('ApplicationLayoutComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApplicationLayoutComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [ApplicationLayoutComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ApplicationLayoutComponent);

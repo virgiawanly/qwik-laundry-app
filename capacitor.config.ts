@@ -1,9 +1,17 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'cleandry-app',
-  webDir: 'www'
+  appId: 'dev.virgiawan.qwik',
+  appName: 'Qwik Laundry',
+  webDir: 'www',
+  plugins: {
+    GoogleAuth: {
+      scopes: ['profile', 'email'],
+      serverClientId:
+        '805908977032-44vlvqtm84ls1fp8mf2pmav0st1a4ahj.apps.googleusercontent.com',
+      forceCodeForRefreshToken: true,
+    },
+  },
 };
 
 export default config;

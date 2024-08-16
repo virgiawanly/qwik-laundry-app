@@ -4,10 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./pages/customer-index/customer-index.module').then(
-        (m) => m.CustomerIndexPageModule
-      ),
+    loadChildren: () => import('./pages/customer-index/customer-index.module').then((m) => m.CustomerIndexPageModule),
   },
 ];
 

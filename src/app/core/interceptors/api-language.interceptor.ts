@@ -8,9 +8,9 @@ export class ApiLanguageInterceptor implements HttpInterceptor {
   constructor(private _storageService: StorageService) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return from(this._storageService.get('mstSales@lang')).pipe(
+    return from(this._storageService.get('qwik@lang')).pipe(
       switchMap((lang) => {
-        const headers = req.headers.append('X-Localization', lang ?? 'en');
+        const headers = req.headers.append('X-Localization', lang ?? 'id');
         req = req.clone({ headers, withCredentials: false });
 
         return next.handle(req);

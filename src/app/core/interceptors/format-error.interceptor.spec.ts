@@ -6,7 +6,7 @@ describe('FormatErrorInterceptor', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       providers: [FormatErrorInterceptor],
-    }),
+    })
   );
 
   it('should be created', () => {

@@ -1,11 +1,4 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Directive,
-  ElementRef,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { AfterContentInit, AfterViewInit, Directive, ElementRef, Input, OnInit } from '@angular/core';
 import { SwiperOptions } from 'swiper/types';
 
 @Directive({

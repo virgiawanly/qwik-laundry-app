@@ -17,7 +17,7 @@ export class LanguageService {
    *
    * @type {BehaviorSubject<string>}
    */
-  private _language$: BehaviorSubject<string> = new BehaviorSubject<string>('en');
+  private _language$: BehaviorSubject<string> = new BehaviorSubject<string>('id');
 
   constructor(
     public translate: TranslateService,
@@ -27,9 +27,9 @@ export class LanguageService {
     this.translate.addLangs(this.languages);
 
     // Set default language
-    this._storageService.get('mstSales@lang').then((lang) => {
-      let storageLang: any = lang ? lang : 'en';
-      this._language$.next(storageLang?.match(/id|en/) ? storageLang : 'en');
+    this._storageService.get('qwik@lang').then((lang) => {
+      let storageLang: any = lang ? lang : 'id';
+      this._language$.next(storageLang?.match(/id|en/) ? storageLang : 'id');
     });
   }
 
@@ -59,6 +59,6 @@ export class LanguageService {
    */
   public setLanguage(lang: any) {
     this._language$.next(lang);
-    this._storageService.set('mstSales@lang', lang);
+    this._storageService.set('qwik@lang', lang);
   }
 }
