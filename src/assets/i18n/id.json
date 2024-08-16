@@ -13,6 +13,7 @@
   "settings.logout.message": "Apakah Anda yakin ingin logout?",
   "settings.logout.confirm": "Logout",
   "settings.logout.cancel": "Batal",
+  "settings.logout.loading": "Logout...",
 
   "login.title": "Login",
   "login.subtitle": "Login ke akun Qwik Laundry.",
@@ -51,5 +52,10 @@
   "registration.or": "atau",
   "registration.button.google": "Lanjutkan dengan Google",
   "registration.have-account": "Sudah punya akun?",
-  "registration.login": "Masuk"
+  "registration.login": "Masuk",
+
+  "app-tab.home": "Home",
+  "app-tab.transactions": "Transaksi",
+  "app-tab.reports": "Laporan",
+  "app-tab.settings": "Pengaturan"
 }

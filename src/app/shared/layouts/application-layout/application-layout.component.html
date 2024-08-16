@@ -1,13 +1,13 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home" href="/home">
-      <ng-icon name="hugeHome03" size="1.25rem"></ng-icon>
-      <ion-label>Home</ion-label>
+      <ng-icon name="lucideHouse" size="1.25rem"></ng-icon>
+      <ion-label>{{ 'app-tab.home' | translate }}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="transactions" href="/transactions">
-      <ng-icon name="hugeNote05" size="1.25rem"></ng-icon>
-      <ion-label>{{ 'transactions' | translate | titlecase }}</ion-label>
+      <ng-icon name="lucideNotebookText" size="1.25rem"></ng-icon>
+      <ion-label>{{ 'app-tab.transactions' | translate }}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button>
@@ -15,18 +15,18 @@
         type="button"
         class="grid size-12 place-items-center rounded-full bg-primary-500 text-center text-sm font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-primary-100 dark:bg-primary-600 dark:hover:bg-primary-500 dark:focus:ring-primary-600"
       >
-        <ng-icon slot="icon-only" name="hugeAddCircleHalfDot" size="1.5rem"></ng-icon>
+        <ng-icon slot="icon-only" name="lucideCircleFadingPlus" size="1.5rem"></ng-icon>
       </button>
     </ion-tab-button>
 
     <ion-tab-button tab="reports" href="/reports">
-      <ng-icon name="hugeChartLineData02" size="1.25rem"></ng-icon>
-      <ion-label>{{ 'reports' | translate | titlecase }}</ion-label>
+      <ng-icon name="lucideLineChart" size="1.25rem"></ng-icon>
+      <ion-label>{{ 'app-tab.reports' | translate }}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="settings" href="/settings">
-      <ng-icon name="hugeSettings03" size="1.25rem"></ng-icon>
-      <ion-label>{{ 'settings' | translate | titlecase }}</ion-label>
+      <ng-icon name="lucideSettings" size="1.25rem"></ng-icon>
+      <ion-label>{{ 'app-tab.settings' | translate }}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

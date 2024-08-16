@@ -13,6 +13,7 @@
   "settings.logout.message": "Are you sure you want to logout?",
   "settings.logout.confirm": "Logout",
   "settings.logout.cancel": "Cancel",
+  "settings.logout.loading": "Logging out...",
 
   "login.title": "Login",
   "login.subtitle": "Login to your Qwik Laundry account.",
@@ -51,5 +52,10 @@
   "registration.or": "or",
   "registration.button.google": "Continue with Google",
   "registration.have-account": "Already have an account?",
-  "registration.login": "Login"
+  "registration.login": "Login",
+
+  "app-tab.home": "Home",
+  "app-tab.transactions": "Transactions",
+  "app-tab.reports": "Reports",
+  "app-tab.settings": "Settings"
 }
